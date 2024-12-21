@@ -1,0 +1,16 @@
+def robust_calculator(func):
+    def wrapper(expression):
+        try:
+            result = func(expression)
+            print("Результат:", result)
+        except Exception as e:
+            print("Ошибка:", str(e))
+        return result
+    return wrapper
+
+@robust_calculator
+def calculate(expression):
+    return eval(expression)
+
+calculate("2 + 2 * 3")
+calculate("a + 2")
