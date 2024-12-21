@@ -1,0 +1,18 @@
+import random
+
+class StudentSimulator:
+    def __init__(self):
+        self.grades = []
+
+    def __iter__(self):
+        while True:
+            new_grade = random.randint(1, 5)
+            self.grades.append(new_grade)
+            yield self.grades
+
+# Использование
+student = StudentSimulator()
+for year_grades in student:
+    print(f"Оценки за год: {year_grades}")
+    if sum(year_grades) / len(year_grades) < 3:
+        break
