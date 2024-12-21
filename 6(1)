@@ -1,0 +1,10 @@
+class MyIterable:
+    def __iter__(self):
+        def generator():
+            for i in range(5):
+                yield i * i
+        return generator()
+
+# Использование
+for num in MyIterable():
+    print(num)
